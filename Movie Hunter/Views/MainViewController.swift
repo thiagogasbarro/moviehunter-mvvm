@@ -36,13 +36,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    // MARK: - Properties
-    
-
-    
-    // MARK: - Constructors
-    
-    
 
     
     // MARK: - Life Cycle
