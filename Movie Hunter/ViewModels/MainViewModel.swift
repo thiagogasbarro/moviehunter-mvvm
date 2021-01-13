@@ -33,7 +33,7 @@ class MainViewModel {
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imagemFilme: UIImageView!
-    
+    //criar modelo padrão para recuperação de imagens 
     func configuraCelula(_ filme: Filme) {
         let urlImagem = "https://image.tmdb.org/t/p/w500\(filme.posterPath)"
         Alamofire.request(urlImagem).responseImage { response in

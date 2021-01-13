@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetalhesViewController: UIViewController {
+class DetalhesViewModel: UIViewController {
    
     var filmeSelecionado:Filme? = nil
     
@@ -18,6 +18,7 @@ class DetalhesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let filme = filmeSelecionado {
+            //configurar exibição em modelo padrão
             self.nomeDoFilme.text = filme.title
             self.descricaoFilme.text = filme.overview
         }

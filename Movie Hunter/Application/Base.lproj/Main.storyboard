@@ -15,6 +15,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jtb-q9-IPf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="aZI-h8-Uh0" kind="relationship" relationship="rootViewController" id="Ghe-HL-cfb"/>
@@ -81,7 +85,7 @@
                                     <constraint firstAttribute="bottom" secondItem="TNC-mP-nsA" secondAttribute="bottom" constant="-23" id="duK-MR-ahn"/>
                                 </constraints>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Hunter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGa-re-LB3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Hunter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGa-re-LB3">
                                 <rect key="frame" x="0.0" y="44" width="157" height="37"/>
                                 <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="30"/>
                                 <nil key="textColor"/>
@@ -91,6 +95,7 @@
                         <viewLayoutGuide key="safeArea" id="Ayx-ti-Nga"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="aWS-iC-SZe" firstAttribute="top" secondItem="xGa-re-LB3" secondAttribute="bottom" constant="8" symbolic="YES" id="F8m-pv-tiw"/>
                             <constraint firstItem="Ayx-ti-Nga" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xGa-re-LB3" secondAttribute="trailing" id="Idq-E8-Lpy"/>
                             <constraint firstItem="xGa-re-LB3" firstAttribute="leading" secondItem="Ayx-ti-Nga" secondAttribute="leading" id="J2K-Vl-aLQ"/>
                             <constraint firstItem="aWS-iC-SZe" firstAttribute="trailing" secondItem="Ayx-ti-Nga" secondAttribute="trailing" id="TaW-I5-vbr"/>
@@ -111,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="-618.39999999999998" y="133.5832083958021"/>
         </scene>
-        <!--Detalhes View Controller-->
+        <!--Detalhes View Model-->
         <scene sceneID="1GO-bc-0oI">
             <objects>
-                <viewController storyboardIdentifier="detalheFilme" id="XbY-q7-14b" customClass="DetalhesViewController" customModule="Movie_Hunter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detalheFilme" id="XbY-q7-14b" customClass="DetalhesViewModel" customModule="Movie_Hunter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eLF-Hl-n2p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -19,24 +19,27 @@ class MainViewController: UIViewController , UICollectionViewDataSource, UIColle
         return self.listaDeFilme.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        //separar*
         let celulaFilme = collectionView.dequeueReusableCell(withReuseIdentifier: "filmeCell", for: indexPath) as! CollectionViewCell
 
         let filmeAtual = listaDeFilme[indexPath.item]
         celulaFilme.configuraCelula(filmeAtual)
 
         return celulaFilme
+        //*
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let filme = listaDeFilme[indexPath.item]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "detalheFilme") as! DetalhesViewController
+        let controller = storyboard.instantiateViewController(withIdentifier: "detalheFilme") as! DetalhesViewModel
         controller.filmeSelecionado = filme
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
     // MARK: - Properties
-    //let viewModel: MainViewModel
+    //dependencia da api a ser realocada*
     var listaDeFilme: [Filme] = []
     
     // MARK: - Life Cycle
@@ -46,18 +49,20 @@ class MainViewController: UIViewController , UICollectionViewDataSource, UIColle
         collectionFilmes.dataSource = self
         collectionFilmes.delegate = self
         //bind()
+        //realocar chamada de API*
         FilmeAPI().recuperaFilmes { (listaDeFilme) in
             self.listaDeFilme = listaDeFilme
             self.collectionFilmes.reloadData()
         }
+        //*
 
     }
     
-    func bind() {
+    //func bind() {
 //        viewModel.viewData.bind { (movieViewData) in
 //            guard let `movieViewData` = movieViewData else { return }
 //            self.titleLabel.text = movieViewData.title
 //            self.releaseDateLabel.text = movieViewData.releaseDate
         //}
-    }
+    //}
 }
