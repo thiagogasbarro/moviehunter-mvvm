@@ -49,8 +49,8 @@ class MainViewController: UIViewController , UICollectionViewDataSource, UIColle
         FilmeAPI().recuperaFilmes { (listaDeFilme) in
             self.listaDeFilme = listaDeFilme
             self.collectionFilmes.reloadData()
-
         }
+
     }
     
     func bind() {

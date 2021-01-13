@@ -13,12 +13,20 @@ import Alamofire
 import AlamofireImage
 
 protocol MainViewModelDelegate {
-    
+    func reloadData(movie: MovieViewData)
 }
 
-class MainViewModel: UIViewController{
+class MainViewModel {
     
+// MARK: - Properties
+    private let cliente: FilmeAPI
+    var viewData: Bindable<MovieViewData?> = Bindable(nil)
+    var delegate: MainViewModelDelegate?
     
+// MARK: - Constructors
+    init(client: FilmeAPI) {
+        self.cliente = client
+    }
 }
 
 // MARK: - CollectionViewCell
