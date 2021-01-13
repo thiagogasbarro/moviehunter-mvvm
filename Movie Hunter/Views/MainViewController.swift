@@ -5,13 +5,12 @@
 //  Created by Thiago Gasbarro Jesus on 12/01/21.
 //  Copyright © 2021 Thiago Gasbarro Jesus. All rights reserved.
 //
-
+import Foundation
 import UIKit
-import SnapKit
 
-class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MainViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var listaDeFilme: [Filme] = []
+
     @IBOutlet weak var collectionFilmes: UICollectionView!
     
     // MARK: - Visual Elements
@@ -21,10 +20,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let celulaFilme = collectionView.dequeueReusableCell(withReuseIdentifier: "filmeCell", for: indexPath) as! CollectionViewCell
-        
+
         let filmeAtual = listaDeFilme[indexPath.item]
         celulaFilme.configuraCelula(filmeAtual)
-    
+
         return celulaFilme
     }
     
@@ -36,7 +35,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-
+    // MARK: - Properties
+    //let viewModel: MainViewModel
+    var listaDeFilme: [Filme] = []
     
     // MARK: - Life Cycle
 
@@ -44,11 +45,19 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewDidLoad()
         collectionFilmes.dataSource = self
         collectionFilmes.delegate = self
+        //bind()
         FilmeAPI().recuperaFilmes { (listaDeFilme) in
             self.listaDeFilme = listaDeFilme
             self.collectionFilmes.reloadData()
+
         }
-        
     }
     
+    func bind() {
+//        viewModel.viewData.bind { (movieViewData) in
+//            guard let `movieViewData` = movieViewData else { return }
+//            self.titleLabel.text = movieViewData.title
+//            self.releaseDateLabel.text = movieViewData.releaseDate
+        //}
+    }
 }
